@@ -1,0 +1,44 @@
+import 'package:flutter/material.dart';
+
+class Counter extends StatelessWidget { //ginawang stateless
+  const Counter({super.key});
+
+  @override 
+  Widget build(BuildContext context) {
+    int _counter = 0; 
+    void _increment(){ 
+     _counter++; 
+     print('Widget was tapped!');
+    }
+    return Row( 
+      mainAxisAlignment: MainAxisAlignment.center, // naka center dahil dito 
+      children: <Widget>[
+        GestureDetector(
+          onTap: _increment,
+          child: Container(
+            color: Colors.blue,
+            padding: const EdgeInsets.all(10.0),
+            child: const Text(
+              'Increment',
+              style: TextStyle(color: Colors.white),
+            ),
+          ),
+        ),
+        const SizedBox(width: 16),
+        Text('Count: $_counter'),
+      ],
+    );
+  }
+}
+
+void main() {
+  runApp(
+    const MaterialApp(
+      home: Scaffold(
+        body: Center(
+          child: Counter(),
+        ),
+      ),
+    ),
+  );
+}
